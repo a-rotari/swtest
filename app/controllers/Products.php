@@ -5,8 +5,21 @@
  */
 class Products extends Controller
 {
+    public function __construct()
+    {
+        $this->productModel = $this->model('Product');
+    }
+
     public function index()
     {
-        $this->view('index');
+        $products = $this->productModel->getProducts();
+        $data = [
+            'products' => $products
+        ];
+        $this->view('index', $data);
     }
+
+    public function addproduct() {
+        $this->view('add-product');
+}
 }

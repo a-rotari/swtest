@@ -23,4 +23,15 @@ class Controller
             die('Error: view does not exist');
         }
     }
+
+    /**
+     * Loads model
+     * @param mixed $model
+     * @return mixed
+     */
+    public function model($model)
+    {
+        require_once '../app/models/' . $model . '.php';
+        return new $model();
+    }
 }

@@ -21,6 +21,10 @@
     min-height: 100vh;
 }
 
+::placeholder {
+    color: #D4D4D4;
+}
+
 /* Container */
 .container {
     position: relative;
@@ -68,6 +72,11 @@
     min-width: 400px;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 .header-button {
     text-transform: uppercase;
     border: 2px solid black;
@@ -82,7 +91,17 @@
     color: #ffffff;
     cursor: pointer;
     /*box-shadow: 5px 5px 4px 2px #404040;*/
+}
 
+.header-button:active {
+    color: #000000;
+}
+
+.header-button:disabled {
+    color: #c1c1c1;
+    background-color: #efefef;
+    border-color: #a3a3a3;
+    box-shadow: 5px 5px 2px 0px #797979;
 }
 
 /* Main Content */
@@ -191,4 +210,78 @@
     margin: 0;
     margin-bottom: 20px;
 
+}
+
+/* Product Add page */
+.product-form fieldset {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+.product-form {
+    width: 500px;
+    user-select: none;
+}
+
+.product-form-main p, .product-form-secondary p, .product-form-switcher {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product-form input, .product-form select {
+    margin-right: 130px;
+    border: 2px solid black;
+    border-radius: 0;
+    appearance: none;
+    font-family: 'Roboto', sans-serif;
+    padding: 5px 10px;
+    outline: none;
+}
+
+.product-form input:focus {
+    border-radius: 0px;
+    box-shadow: inset 0px 0px 0px 1px black;
+    /*border: 3px solid black;*/
+    /*background-color: #e5e5e5;*/
+}
+
+
+.product-switcher {
+    position: relative;
+    user-select: none;
+}
+
+.product-switcher::after {
+    content: url("../img/downward_arrow.svg");
+    position: absolute;
+    /*top: 0;*/
+    left: 260px;
+    /*margin: auto;*/
+    /*height: inherit;*/
+    /*pointer-events: none;*/
+    user-select: none;
+    /*box-sizing: inherit;*/
+}
+
+.product-form select:focus {
+    border-radius: 0px;
+    box-shadow: inset 0px 0px 0px 1px black;
+    /*border: 3px solid black;*/
+}
+
+.invalid-feedback {
+    display: block;
+    color: red;
+    width: 100%;
+    font-size: 12px;
+    padding-top: 2px;
+    padding-left: 140px;
+}
+
+.product-form-switcher select {
+    padding-left: 40px;
 }

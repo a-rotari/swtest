@@ -1,10 +1,10 @@
 <?php
-/*
+
+/**
  * Core class that, when constructed, parses the URL exploded into an array
  * and calls the controller with method and parameters
  * based on the results of parsing.
  */
-
 class Core
 {
     // Set default controller, method and params to be called if URL doesn't match
@@ -49,22 +49,26 @@ class Core
         }
         // Get any parameters for the method from URL
         $this->params = $url ? array_values($url) : [];
-
-        call_user_func_array([$this->currentController, $this->currentMethod], $this->params);
+        call_user_func_array([$this->currentController, $this->currentMethod], [$this->params]);
     }
 
 
     /**
      * Returns URL exploded into an array
-     * @return array|string[]
+     * @return array
      */
-    public function getUrl()
+    public function getUrl(): array
     {
         if (isset($_GET['url'])) {
             $url = rtrim($_GET['url'], '/');
             $url = filter_var($url, FILTER_SANITIZE_URL);
             // Remove any hyphens from URL since they are not allowed in PHP method names
             $url = str_replace('-', '', $url);
+
+            // Some internal logging
+            $log = date("h:i:sa") . ' --- RECEIVED URL: ' . $url . "\r\n\r\n";
+            file_put_contents('sitelog', $log, FILE_APPEND);
+
             return explode('/', $url);
         }
         return [];

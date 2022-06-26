@@ -13,7 +13,7 @@ class Controller
      * @param array $data Data passed to the view
      * @return void
      */
-    public function view($view, $data = [])
+    public function view(string $view, array $data = [])
     {
         // Check for view file
         if (file_exists('../app/views/' . $view . '.php')) {
@@ -26,10 +26,10 @@ class Controller
 
     /**
      * Loads model
-     * @param mixed $model
-     * @return mixed
+     * @param string $model Name of model file without extension
+     * @return object
      */
-    public function model($model)
+    public function model(string $model): object
     {
         require_once '../app/models/' . $model . '.php';
         return new $model();

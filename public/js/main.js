@@ -1,6 +1,11 @@
 const deleteBtn = document.querySelector('#delete-product-btn');
-let values = [];
+// let values = [];
 deleteBtn.addEventListener('click', (event) => {
+    let checkboxes = document.querySelectorAll('input[type=checkbox][class=delete-checkbox]:checked');
+    let values = [];
+    checkboxes.forEach(function (checkbox) {
+        values.push(checkbox.value);
+    });
     if (values.length) {
         let params = values.join('/');
         let newLocation = window.location.href + 'delete-products/' + params;
@@ -8,6 +13,7 @@ deleteBtn.addEventListener('click', (event) => {
     }
 });
 
+/*
 let checkboxes = document.querySelectorAll('input[type=checkbox][class=delete-checkbox]');
 checkboxes.forEach(function (checkbox) {
     checkbox.addEventListener('change', function () {
@@ -27,4 +33,4 @@ checkboxes.forEach(function (checkbox) {
         }
     });
 });
-
+*/

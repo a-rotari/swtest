@@ -21,7 +21,7 @@
         <div class="main-header-controls">
             <a class="header-button" href="<?php
             echo URLROOT; ?>/add-product">ADD</a>
-            <button class="header-button" id="delete-product-btn" type="button" disabled>MASS DELETE</button>
+            <button class="header-button" id="delete-product-btn" type="button">MASS DELETE</button>
         </div>
     </header>
     <main class="main-content">

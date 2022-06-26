@@ -16,9 +16,9 @@ if (session_status() === PHP_SESSION_NONE) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<?php
-    echo URLROOT; ?>/css/normalize.css">
+    echo htmlspecialchars(URLROOT); ?>/css/normalize.css">
     <link rel="stylesheet" href="<?php
-    echo URLROOT; ?>/css/style.css">
+    echo htmlspecialchars(URLROOT); ?>/css/style.css">
 </head>
 <body class="page-body">
 <div class="container">
@@ -27,33 +27,33 @@ if (session_status() === PHP_SESSION_NONE) {
         <div class="main-header-controls">
             <input type="submit" value="Save" form="product_form" class="header-button">
             <a class="header-button" href="<?php
-            echo URLROOT; ?>">Cancel</a>
+            echo htmlspecialchars(URLROOT); ?>">Cancel</a>
         </div>
     </header>
     <main class="main-content">
         <form id="product_form" method="post" action="<?php
-        echo URLROOT; ?>/add-product" class="product-form">
+        echo htmlspecialchars(URLROOT); ?>/add-product" class="product-form">
             <fieldset class="product-form-main">
                 <p>
                     <label for="sku" form="product_form">SKU</label>
                     <input type="text" id="sku" name="sku" placeholder="F1234567" value="<?php
-                    echo $data['sku']; ?>">
+                    echo htmlspecialchars($data['sku']); ?>">
                     <span class="invalid-feedback"><?php
-                        echo $data['sku_err']; ?></span>
+                        echo htmlspecialchars($data['sku_err']); ?></span>
                 </p>
                 <p>
                     <label for="name" form="product_form">Name</label>
                     <input type="text" id="name" name="name" placeholder="Product Name" value="<?php
-                    echo $data['name']; ?>">
+                    echo htmlspecialchars($data['name']); ?>">
                     <span class="invalid-feedback"><?php
-                        echo $data['name_err']; ?></span>
+                        echo htmlspecialchars($data['name_err']); ?></span>
                 </p>
                 <p>
                     <label for="price" form="product_form">Price (&#36)</label>
                     <input type="text" id="price" name="price" placeholder="7.75" value="<?php
-                    echo $data['price']; ?>">
+                    echo htmlspecialchars($data['price']); ?>">
                     <span class="invalid-feedback"><?php
-                        echo $data['price_err']; ?></span>
+                        echo htmlspecialchars($data['price_err']); ?></span>
                 </p>
             </fieldset>
             <fieldset class="product-form-switcher">
@@ -62,12 +62,12 @@ if (session_status() === PHP_SESSION_NONE) {
                     <?php
                     foreach (PRODUCTTYPES as $ptype => $pvalue) : ?>
                         <option id="<?php
-                        echo $ptype; ?>" value="<?php
-                        echo $ptype; ?>" <?php
+                        echo htmlspecialchars($ptype); ?>" value="<?php
+                        echo htmlspecialchars($ptype); ?>" <?php
                         if ($_SESSION['productType'] && ($_SESSION['productType'] == $ptype)) {
                             echo 'selected';
                         } ?>><?php
-                            echo $pvalue; ?></option>
+                            echo htmlspecialchars($pvalue); ?></option>
                     <?php
                     endforeach; ?>
                 </select>
@@ -78,7 +78,7 @@ if (session_status() === PHP_SESSION_NONE) {
             <?php
             foreach ($data['secondary_err'] as $error_message) : ?>
                 <span class="invalid-feedback"><?php
-                    echo $error_message; ?></span>
+                    echo htmlspecialchars($error_message); ?></span>
             <?php
             endforeach; ?>
         </form>
@@ -88,6 +88,6 @@ if (session_status() === PHP_SESSION_NONE) {
     </footer>
 </div>
 <script src="<?php
-echo URLROOT; ?>/js/script.js"></script>
+echo htmlspecialchars(URLROOT); ?>/js/script.js"></script>
 </body>
 </html>

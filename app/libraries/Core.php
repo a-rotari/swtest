@@ -64,11 +64,6 @@ class Core
             $url = filter_var($url, FILTER_SANITIZE_URL);
             // Remove any hyphens from URL since they are not allowed in PHP method names
             $url = str_replace('-', '', $url);
-
-            // Some internal logging
-            $log = date("h:i:sa") . ' --- RECEIVED URL: ' . $url . "\r\n\r\n";
-            file_put_contents('sitelog', $log, FILE_APPEND);
-
             return explode('/', $url);
         }
         return [];

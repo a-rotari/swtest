@@ -194,11 +194,6 @@ class Product
                     product.id;"
         );
         $rawProducts = $this->db->resultSet();
-
-
-        $log = date("h:i:sa") . ' --- SELECTING PRODUCTS: ' . json_encode($rawProducts) . "\r\n\r\n";
-        file_put_contents('sitelog', $log, FILE_APPEND);
-
         $products = [];
 
         foreach ($rawProducts as $rawProduct) {
@@ -307,10 +302,6 @@ class Product
      */
     public function getProductSku(string $value): array
     {
-        // Some internal logging
-        $log = date("h:i:sa") . ' --- ABOUT TO GET PRODUCT: ' . json_encode($value) . "\r\n\r\n";
-        file_put_contents('sitelog', $log, FILE_APPEND);
-
         $this->db->query(
             "SELECT
                     product.id as 'id',
@@ -338,10 +329,6 @@ class Product
      */
     public function postProduct($product)
     {
-        // Some internal logging
-        $log = date("h:i:sa") . ' --- ABOUT TO POST PRODUCTS: ' . json_encode($product) . "\r\n\r\n";
-        file_put_contents('sitelog', $log, FILE_APPEND);
-
         $this->db->query(
             "INSERT INTO product (sku, name, price, type)
                  VALUES (:sku, :name, :price, :type)"
@@ -388,11 +375,6 @@ class Product
      */
     public function deleteProducts(array $ids)
     {
-        // Some internal logging
-        $log = date("h:i:sa") . ' --- ABOUT TO DELETE PRODUCT: ' . json_encode($ids) . "\r\n\r\n";
-        file_put_contents('sitelog', $log, FILE_APPEND);
-
-
         $paramName = [];
         $paramValue = [];
 

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+          content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Product List</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,8 +19,9 @@
     <header class="main-header">
         <h1>Products List</h1>
         <div class="main-header-controls">
-            <button class="header-button" type="button">Add</button>
-            <button class="header-button" id="delete-product-btn" type="button">Mass delete</button>
+            <a class="header-button" href="<?php
+            echo URLROOT; ?>/add-product">ADD</a>
+            <button class="header-button" id="delete-product-btn" type="button" disabled>MASS DELETE</button>
         </div>
     </header>
     <main class="main-content">
@@ -36,7 +37,8 @@
                         echo $product['productPrice']; ?></p>
                     <p class="list-item-custom"><?php
                         echo $product['attributes']['attributeName1'] . $product['attributes']['attributeValue1']; ?></p>
-                    <input class="delete-checkbox" type="checkbox">
+                    <input aria-label="delete product" class="delete-checkbox" type="checkbox" value="<?php
+                    echo $id ?>">
                 </li>
             <?php
             endforeach; ?>
@@ -47,5 +49,7 @@
         <p>Scandiweb Test assignment</p>
     </footer>
 </div>
+<script src="<?php
+echo URLROOT; ?>/js/main.js"></script>
 </body>
 </html>

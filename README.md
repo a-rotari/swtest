@@ -3,13 +3,13 @@
 27 Jun 2022, ver. 1
 
 ### Contents:
- 1. [Project Overview](#project-overview)
- 2. [Technologies](#technologies)
- 3. [Deployment](#deploying-the-project-on-vps)
- 4. [Details: Libraries](#libraries)
- 5. [Details: Controllers](#controllers)
- 6. [Details: Models](#models)
- 7. [Details: Views](#views)
+ 1. [Project Overview](#markdown-header-project-overview)
+ 2. [Technologies](#markdown-header-technologies)
+ 3. [Deployment](#markdown-header-deploying-the-project-on-vps)
+ 4. [Details: Libraries](#markdown-header-libraries)
+ 5. [Details: Controllers](#markdown-header-controllers)
+ 6. [Details: Models](#markdown-header-models)
+ 7. [Details: Views](#markdown-header-views)
 
 ## Project overview
 This is a simple web-app accessible by URL containing two pages for:
@@ -25,7 +25,7 @@ As of June 2022, the app is live at https://juniortest.arotari.com
 ## Technologies
 The project has been developed using PHP 7.4, MySQL 8.0, HTML, CSS, JavaScript. No frameworks were used, although the project's back-end design follows MVC pattern, constituting a simplistic framework in and of itself. 
 
-The project can be deployed on a virtual private server (VPS) running Ubuntu Linux, and requires customization of [web-server settings](#sample-server-templates) to ensure correct processing of parameters in requests.
+The project can be deployed on a virtual private server (VPS) running Ubuntu Linux, and requires customization of [web-server settings](#markdown-header-sample-server-templates) to ensure correct processing of parameters in requests.
 
 
 ## Deploying the project on VPS

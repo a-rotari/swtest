@@ -17,7 +17,7 @@
 <body class="page-body">
 <div class="container">
     <header class="main-header">
-        <h1>Products List</h1>
+        <h1>Product List</h1>
         <div class="main-header-controls">
             <a class="header-button" href="<?php
             echo htmlspecialchars(URLROOT); ?>/add-product">ADD</a>

@@ -237,7 +237,7 @@ class Product
         // Make sure price is not empty and append $ sign for displaying on main page
         $price = $product['productPrice'] ?? 'N/A ';
         unset($product['productPrice']);
-        $product['productPrice'] = $price . ' &#36';
+        $product['productPrice'] = $price . ' $';
         return $product;
     }
 
@@ -284,11 +284,13 @@ class Product
             $data['price_err'] = 'Please enter price';
         } else {
             $fields['price'] = trim($fields['price']);
-            if (strlen($fields['price']) > 10) {
-                $data['price_err'] = 'Price too high';
+            if (strlen($fields['price']) > 9) {
+                $data['price_err'] = 'Invalid price';
             }
             if (!filter_var($fields['price'], FILTER_VALIDATE_FLOAT)) {
                 $data['price_err'] = 'Enter a valid price in decimal format';
+            } else if (floatval($fields['price']) > 999999.99 ) {
+                $data['price_err'] = 'The maximum allowed price is 999,999.99 $';
             }
         }
 

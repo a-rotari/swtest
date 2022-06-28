@@ -123,7 +123,7 @@ __deleteproducts()__: deletes the products whose IDs are passed as arguments, an
 ### Models
 
 #### Product.php
-The model is instantiated as a property of the controller and interacts with the database, performing *create*, *read*, *delete* operations via its methods __getProducts()__, __postProduct()__, __deleteProduct()__. 
+The model is instantiated as a property of the controller and interacts with the database, performing *create*, *read*, *delete* operations via its methods __getProducts()__, __setProduct()__, __deleteProduct()__. 
 The model's __validate...()__ methods perform validation of form fields' values before they are inserted into database.
 The model's __format...()__ methods format the values output from database before they are displayed in a view.
 

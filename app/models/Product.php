@@ -261,8 +261,8 @@ class Product
             if (!filter_var(
                     $fields['sku'],
                     FILTER_VALIDATE_REGEXP,
-                    array('options' => array('regexp' => $regexp))
-                ) or strlen($fields['sku']) < 8 or strlen($fields['sku']) > 12) {
+                    ['options' => ['regexp' => $regexp]]
+                ) || strlen($fields['sku']) < 8 || strlen($fields['sku']) > 12) {
                 $data['sku_err'] = 'SKU must be 8-12 characters long. Only English letters and numbers permitted.';
             }
             $checkSku = $this->getProductSku($fields['sku']);
@@ -277,7 +277,7 @@ class Product
         if (strlen($fields['name']) > 255) {
             $data['name_err'] = 'Name too long';
         } else {
-            $fields['name'] = (trim($fields['name']));
+            $fields['name'] = trim($fields['name']);
         }
 
         if (empty($fields['price'])) {
@@ -289,8 +289,10 @@ class Product
             }
             if (!filter_var($fields['price'], FILTER_VALIDATE_FLOAT)) {
                 $data['price_err'] = 'Enter a valid price in decimal format';
-            } else if (floatval($fields['price']) > 999999.99 ) {
-                $data['price_err'] = 'The maximum allowed price is 999,999.99 $';
+            } else {
+                if (floatval($fields['price']) > 999999.99) {
+                    $data['price_err'] = 'The maximum allowed price is 999,999.99 $';
+                }
             }
         }
 
@@ -329,7 +331,7 @@ class Product
      * @param array $product array containing product attributes, which has passed validation
      * @return bool returns 'true' if posting was successful, 'false' if not
      */
-    public function postProduct($product)
+    public function setProduct($product)
     {
         $this->db->query(
             "INSERT INTO product (sku, name, price, type)
@@ -377,9 +379,6 @@ class Product
      */
     public function deleteProducts(array $ids)
     {
-        $paramName = [];
-        $paramValue = [];
-
         // Prepares the query containing the placeholders for all submitted IDs
         foreach ($ids as $id) {
             $params[':' . $id] = $id;

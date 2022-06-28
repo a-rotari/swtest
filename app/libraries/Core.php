@@ -62,8 +62,8 @@ class Core
         if (isset($_GET['url'])) {
             $url = rtrim($_GET['url'], '/');
             $url = filter_var($url, FILTER_SANITIZE_URL);
-            // Remove any hyphens from URL since they are not allowed in PHP method names
-            $url = str_replace('-', '', $url);
+            // Remove hyphens from URL converting it to camelCase
+            $url = lcfirst(str_replace('-', '', ucwords($url, '-')));
             return explode('/', $url);
         }
         return [];

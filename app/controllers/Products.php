@@ -5,6 +5,8 @@
  */
 class Products extends Controller
 {
+    private object $productModel;
+
     /**
      * Loads model object using parent class method
      */
@@ -34,7 +36,7 @@ class Products extends Controller
      * to default every time the page is reloaded after failed validation.
      * @return void
      */
-    public function addproduct()
+    public function addProduct()
     {
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
@@ -48,7 +50,7 @@ class Products extends Controller
                 && !$data['name_err']
                 && !$data['price_err']
                 && !array_filter($data['secondary_err'])) {
-                $this->productModel->postProduct($data);
+                $this->productModel->setProduct($data);
                 header('Location: ' . URLROOT);
             } else {
                 $_SESSION['productType'] = $data['productType'];
@@ -74,7 +76,7 @@ class Products extends Controller
      * @param array $ids IDs of products to be deleted
      * @return void
      */
-    public function deleteproducts(array $ids)
+    public function deleteProducts(array $ids)
     {
         $this->productModel->deleteProducts($ids);
         header('Location: ' . URLROOT);

@@ -56,7 +56,7 @@ class Product
     public function validateFurniture(array $fields): array
     {
         $data = [
-            'secondary_err' => ['height_err' => '', 'length_err' => '', 'width_err' => '']
+            'secondary_err' => ['height_err' => '', 'length_err' => '', 'width_err' => '',]
         ];
         if (empty($fields['height'])) {
             $data['secondary_err']['height_err'] = 'Please enter height in centimeters';
@@ -108,7 +108,7 @@ class Product
         if (floatval($weight)) {
             $weight = strval(round(floatval($weight), 3));
         }
-        $product['attributes'] += ['attributeName1' => 'Weight: ', 'attributeValue1' => $weight . ' KG'];
+        $product['attributes'] += ['attributeName1' => 'Weight: ', 'attributeValue1' => $weight . ' KG',];
         return $product;
     }
 
@@ -145,7 +145,7 @@ class Product
     {
         $size = $product['attributes']['size'] ?? 'N/A ';
         unset($product['attributes']['size']);
-        $product['attributes'] += ['attributeName1' => 'Size: ', 'attributeValue1' => $size . ' MB'];
+        $product['attributes'] += ['attributeName1' => 'Size: ', 'attributeValue1' => $size . ' MB',];
         return $product;
     }
 

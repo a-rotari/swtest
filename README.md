@@ -22,14 +22,14 @@ Add product page displays a form with several fields and 2 buttons: Save and Can
 
 As of June 2022, the app is live at https://juniortest.arotari.com
 
-**In May 2023 I've finally added adaptive styling (using media queries) to this project. The reason it took me so long to add this is because I was busy with other things.
-Anyway, better late than never! 
-Also, I've dockerized the project to make it easier to work on in the development mode. Now all you have to do is install docker and run 'docker compose up' command from the project directory. This will spin up docker containers with php, nginx, mysql and phpadmin, you can work on the code and interact with the app on localhost:80**
+**!!!**
+In May 2023 I've finally added *adaptive styling* (using ***media queries***) to this project. The reason it took me so long to add this is because I was busy with other things. Anyway, better late than never!
+Also, I've dockerized the project to make it easier to work on in the development mode. Now all you have to do is install docker and run '*docker compose up*' command from the project directory. This will spin up docker containers with **php**, **nginx**, **mysql** and **phpadmin**, you can work on the code and interact with the app on localhost:80
 
 ## Technologies
-The project has been developed using PHP 7.4, MySQL 8.0, HTML, CSS, JavaScript. No frameworks were used, although the project's back-end design follows MVC pattern, constituting a simplistic framework in and of itself. 
+The project has been developed using PHP 7.4, MySQL 8.0, HTML, CSS, JavaScript. No frameworks were used, although the project's back-end design follows MVC pattern, constituting a simplistic framework in and of itself.
 
-The project can be deployed on a virtual private server (VPS) running Ubuntu Linux, and requires customization of [web-server settings](#markdown-header-sample-server-templates) to ensure correct processing of parameters in requests.
+The project can be deployed on a virtual private server (VPS) running Ubuntu Linux, and requires customization of [web-server settings](#markdown-header-sample-server-templates) to ensure correct processing of parameters in requests. Also, see the Section 1 for info about deploying the project in development mode.
 
 
 ## Deploying the project on VPS

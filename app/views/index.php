@@ -21,7 +21,8 @@
         <div class="main-header-controls">
             <a class="header-button" href="<?php
             echo htmlspecialchars(URLROOT); ?>/add-product">ADD</a>
-            <button class="header-button" id="delete-product-btn" type="button">MASS DELETE</button>
+            <button class="header-button" id="delete-product-btn" type="button">DELETE<span class="hide-on-mobile"> SELECTED</span></button>
+            <a class="header-button" href="https://arotari.com"><span class="hide-on-mobile">ANDREI'S </span>HOME<span class="hide-on-mobile">PAGE</span></a>
         </div>
     </header>
     <main class="main-content">

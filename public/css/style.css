@@ -21,6 +21,11 @@ input {
   width: 1px;
   margin: 0;
 }
+@media (max-width: 767px) {
+  .hide-on-mobile {
+    display: none;
+  }
+}
 /* Global */
 .page-body {
   margin: 0 auto;

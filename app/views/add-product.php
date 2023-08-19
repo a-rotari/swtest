@@ -23,7 +23,7 @@ if (session_status() === PHP_SESSION_NONE) {
 <body class="page-body">
 <div class="container">
     <header class="main-header">
-        <h1>Products Add</h1>
+        <h1>Add Products</h1>
         <div class="main-header-controls">
             <input type="submit" value="Save" form="product_form" class="header-button">
             <a class="header-button" href="<?php
